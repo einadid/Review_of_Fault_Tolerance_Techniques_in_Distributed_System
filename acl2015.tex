@@ -1,0 +1,194 @@
+\documentclass[conference]{IEEEtran}
+
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{url}
+
+\begin{document}
+
+\title{Deep Image Super-Resolution: A Literature Review}
+
+\author{
+
+\IEEEauthorblockN{
+Samia Mannan Ananya\IEEEauthorrefmark{1},
+Tafhima Tanjin\IEEEauthorrefmark{2},
+Maryiam Binte Ali\IEEEauthorrefmark{3}
+}
+
+\IEEEauthorblockA{
+Department of Computer Science and Engineering\\
+Port City International University\\
+Chattogram-4203, Bangladesh\\
+Email:
+\IEEEauthorrefmark{1}samiamannanananya_cse30d@portcity.edu.bd,
+\IEEEauthorrefmark{2}cse03007786@portcity.edu.bd,
+\IEEEauthorrefmark{3}cse03007800@portcity.edu.bd
+}
+
+}
+
+\maketitle
+
+\begin{abstract}
+
+Deep Image Super-Resolution (DISR) has emerged as one of the most significant research areas in computer vision because of its capability to reconstruct high-resolution images from low-resolution observations. In recent years, deep learning has substantially advanced super-resolution performance by improving texture recovery, structural preservation, and perceptual image quality across numerous application domains. Medical imaging has particularly benefited from these developments, where high-resolution images are essential for accurate diagnosis while hardware limitations, acquisition time, patient safety, and imaging costs often restrict image quality. Consequently, deep learning-based super-resolution has become an effective computational solution for enhancing medical images without requiring expensive imaging equipment or additional radiation exposure.
+
+This literature review synthesizes recent developments in deep image super-resolution with a primary focus on medical imaging applications. The reviewed studies encompass convolutional neural networks, residual learning, generative adversarial networks, Transformer-based architectures, diffusion models, and hybrid approaches designed for image reconstruction. Their applications span magnetic resonance imaging, computed tomography, ultrasound imaging, retinal imaging, histopathology, and other biomedical imaging modalities. Existing literature demonstrates remarkable improvements in reconstruction accuracy, perceptual quality, and structural fidelity. However, several challenges remain, including computational complexity, limited annotated medical datasets, poor cross-domain generalization, and the potential generation of artificial image details that may affect clinical interpretation. This review compares current deep learning approaches, summarizes benchmark datasets and evaluation metrics, identifies research gaps, and discusses future research directions toward clinically reliable, computationally efficient, and generalizable deep image super-resolution systems.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Image Super-Resolution, Deep Learning, Medical Imaging, Convolutional Neural Networks, Generative Adversarial Networks, Vision Transformers, Diffusion Models, Image Reconstruction.
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Image quality is a fundamental requirement for computer vision systems because it directly influences feature extraction, object recognition, image interpretation, and subsequent decision-making processes. High-resolution images preserve fine structural details that are often essential for visual perception and automated analysis. However, image acquisition is frequently constrained by hardware limitations, sensor characteristics, imaging speed, acquisition cost, environmental conditions, motion artifacts, and patient safety considerations. Consequently, captured images often contain insufficient spatial resolution, making subsequent image analysis considerably more difficult.
+
+Image Super-Resolution (SR) addresses this limitation by reconstructing a high-resolution (HR) image from one or more low-resolution (LR) observations. Traditional super-resolution methods mainly relied on interpolation algorithms, sparse representation, and example-based learning techniques. Although these methods are computationally efficient, they frequently produce blurred edges, oversmoothed textures, and loss of high-frequency information.
+
+The rapid development of deep learning has transformed image super-resolution during the last decade. Deep convolutional neural networks introduced end-to-end feature learning capable of recovering detailed image structures beyond conventional interpolation techniques. Subsequently, residual learning, dense feature extraction, attention mechanisms, generative adversarial networks (GANs), Vision Transformers (ViTs), and diffusion models have further improved reconstruction quality by learning increasingly complex image representations. These architectures demonstrate superior capability in preserving both local texture information and global contextual relationships while producing visually realistic high-resolution images.
+
+Medical imaging has become one of the most important application areas for deep image super-resolution. Clinical imaging modalities such as Magnetic Resonance Imaging (MRI), Computed Tomography (CT), ultrasound, retinal imaging, microscopy, and histopathology frequently require high-resolution visualization for accurate diagnosis and treatment planning. However, acquiring high-resolution medical images often increases imaging time, radiation exposure, hardware cost, or patient discomfort. Deep learning-based super-resolution provides an attractive computational alternative by enhancing image quality while preserving clinically meaningful anatomical structures.
+
+Recent literature demonstrates the successful application of CNN-based, GAN-based, Transformer-based, and diffusion-based super-resolution models across various medical imaging modalities. CNN-based approaches remain computationally efficient and suitable for real-time deployment, whereas adversarial learning significantly improves perceptual quality by generating realistic textures. More recently, Transformer architectures have demonstrated superior capability in modeling long-range dependencies, while diffusion models have established new state-of-the-art performance in image generation and restoration tasks. Hybrid architectures combining convolutional operations with attention mechanisms further improve reconstruction accuracy by integrating local feature extraction with global contextual understanding.
+
+Despite these remarkable achievements, several important challenges continue to limit the practical deployment of deep image super-resolution in clinical environments. Many published studies rely on relatively small benchmark datasets with limited external validation, making model generalization difficult across different imaging devices and healthcare institutions. Furthermore, computational complexity, limited annotated medical datasets, and the possibility of generating hallucinated image details remain significant concerns for clinical reliability. Consequently, developing efficient, robust, and clinically trustworthy super-resolution models continues to be an active area of research.
+
+This literature review provides a comprehensive analysis of recent advances in deep image super-resolution with emphasis on medical imaging applications. The review summarizes representative deep learning architectures, benchmark datasets, evaluation metrics, clinical applications, existing limitations, and emerging research trends while identifying future directions toward reliable and computationally efficient image super-resolution systems.
+
+\bibliographystyle{IEEEtran}
+\section{Literature Review}
+
+Deep learning has significantly improved image super-resolution (SR), allowing low-resolution images to be reconstructed with greater detail and visual quality. Early methods mainly used convolutional neural networks (CNNs), while recent approaches include generative adversarial networks (GANs), transformers, and diffusion models.
+
+\subsection{CNN-Based Super-Resolution}
+
+Dong et al. introduced the Super-Resolution Convolutional Neural Network (SRCNN), which uses a three-layer CNN to reconstruct high-resolution images from low-resolution inputs. Later, VDSR improved reconstruction performance by using a deeper network and residual learning. EDSR further enhanced image reconstruction by removing unnecessary network components and increasing model capacity.
+
+\subsection{GAN-Based Super-Resolution}
+
+Generative Adversarial Networks have become important in image super-resolution because they can generate visually realistic details. SRGAN introduced adversarial learning to improve perceptual image quality. ESRGAN improved this approach through an enhanced network architecture and improved perceptual loss.
+
+GAN-based approaches have also been explored in medical imaging. These methods aim to reconstruct detailed medical images while improving visual quality.
+
+\subsection{Transformer-Based Super-Resolution}
+
+Transformer-based approaches use attention mechanisms to capture relationships between distant image regions. Models such as SwinIR apply shifted-window attention to image restoration tasks, including super-resolution. These architectures can capture both local and long-range image features.
+
+\subsection{Diffusion-Based Super-Resolution}
+
+Diffusion models have recently attracted attention for image reconstruction. They progressively generate high-quality images from noisy representations. Methods such as SRDiff and ResShift demonstrate the potential of diffusion-based approaches for producing realistic high-resolution images.
+
+\section{Deep Learning Architectures for Super-Resolution}
+
+\subsection{Convolutional Neural Networks}
+
+CNN-based methods extract image features through convolutional layers. They are widely used because of their ability to learn spatial patterns and reconstruct image details. However, some CNN models may produce smooth results and lose fine textures.
+
+\subsection{Generative Adversarial Networks}
+
+GAN-based methods consist of two networks: a generator and a discriminator. The generator reconstructs high-resolution images, while the discriminator distinguishes generated images from real images. This competition helps produce visually realistic results.
+
+\subsection{Vision Transformers}
+
+Vision Transformers use self-attention mechanisms to understand relationships between different image regions. They can capture global image information and improve reconstruction quality. However, their computational requirements can be relatively high.
+
+\subsection{Diffusion Models}
+
+Diffusion-based methods reconstruct images through a progressive denoising process. They can generate detailed and realistic image structures, although their inference process may require more computational resources.
+
+\section{Medical Imaging Applications}
+
+Image super-resolution has important applications in medical imaging, where image quality can affect the observation of anatomical structures and abnormalities.
+
+\subsection{Magnetic Resonance Imaging}
+
+MRI super-resolution improves the spatial resolution of medical images and may help reveal anatomical details. Deep learning methods can reconstruct high-resolution MRI images from lower-resolution inputs. However, reconstructed details must be evaluated carefully to avoid introducing misleading structures.
+
+\subsection{Ultrasound Imaging}
+
+Ultrasound images often contain noise and relatively low-resolution structures. Deep learning-based super-resolution can improve image clarity and support the visualization of anatomical features.
+
+\subsection{Skin and Histopathological Imaging}
+
+Super-resolution techniques can enhance details in skin and histopathological images. Recent studies have explored GAN-based approaches for improving image quality and supporting medical image analysis.
+
+\section{Datasets and Evaluation Metrics}
+
+Datasets are essential for training and evaluating super-resolution models. Commonly used natural-image datasets include DIV2K, Set5, Set14, BSD100, and Urban100. Medical imaging studies may use modality-specific datasets, depending on the research objective.
+
+\subsection{Evaluation Metrics}
+
+Several quantitative metrics are used to evaluate reconstructed images.
+
+\textbf{Mean Squared Error (MSE):}
+\begin{equation}
+MSE = \frac{1}{MN}\sum_{i=1}^{M}\sum_{j=1}^{N}
+(I_{ij}-\hat{I}_{ij})^2
+\end{equation}
+
+\textbf{Peak Signal-to-Noise Ratio (PSNR):}
+\begin{equation}
+PSNR = 10\log_{10}\left(\frac{MAX_I^2}{MSE}\right)
+\end{equation}
+
+\textbf{Structural Similarity Index (SSIM):}
+
+SSIM measures the similarity between two images based on luminance, contrast, and structural information.
+
+\section{Comparative Analysis of Super-Resolution Methods}
+
+Different deep learning architectures provide different advantages and limitations in image reconstruction.
+
+\begin{table*}[!t]
+\centering
+\caption{Comparison of Deep Learning-Based Super-Resolution Methods}
+\label{tab:comparison}
+\begin{tabular}{p{2.5cm} p{3cm} p{4cm} p{4cm}}
+\toprule
+\textbf{Method} & \textbf{Architecture} & \textbf{Advantages} & \textbf{Limitations} \\
+\midrule
+SRCNN & CNN & Simple architecture and effective feature extraction. & Limited reconstruction capability compared with deeper models. \\
+VDSR & Deep CNN & Uses residual learning and improves reconstruction accuracy. & Requires greater computational resources. \\
+EDSR & Enhanced CNN & Produces improved reconstruction quality. & Relatively high model complexity. \\
+SRGAN & GAN & Generates perceptually realistic image details. & May introduce artificial textures. \\
+ESRGAN & Enhanced GAN & Improves perceptual quality and texture reconstruction. & Training can be unstable. \\
+SwinIR & Transformer & Captures local and long-range image features. & Requires considerable computational resources. \\
+Diffusion Models & Diffusion Network & Can generate realistic and detailed images. & May require longer inference time. \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Research Challenges and Future Directions}
+
+Despite significant progress, deep learning-based image super-resolution still faces several challenges.
+
+\subsection{Computational Complexity}
+
+Advanced architectures often require high computational power and memory, making them difficult to deploy on resource-limited devices.
+
+\subsection{Medical Image Reliability}
+
+In medical applications, reconstructed images must preserve important anatomical structures. Artificially generated details may affect the interpretation of medical images.
+
+\subsection{Limited Training Data}
+
+Medical datasets are often limited in size and may vary across imaging devices and institutions. This can reduce the generalization ability of trained models.
+
+\subsection{Future Research Directions}
+
+Future research can focus on lightweight architectures, improved generalization, reliable reconstruction, and efficient models for real-time medical imaging applications.
+
+\section{Conclusion}
+
+Deep learning has brought significant improvements to image super-resolution. CNNs, GANs, transformers, and diffusion models have each contributed to the development of more effective reconstruction techniques. These approaches have applications in natural and medical imaging. However, computational complexity, limited datasets, and the reliability of reconstructed details remain important challenges. Future research should focus on developing efficient and reliable super-resolution models, particularly for medical imaging applications.
